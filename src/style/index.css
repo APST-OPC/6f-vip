@@ -5,8 +5,16 @@
 
 @custom-variant dark (&:is(.dark *));
 
+@layer base {
+
+  button:not(:disabled),
+  [role="button"]:not(:disabled) {
+    cursor: pointer;
+  }
+}
+
 @theme inline {
-    --font-heading: var(--font-sans);
+    --font-heading: var(--font-inter);
     --font-sans: 'Geist Variable', sans-serif;
     --color-sidebar-ring: var(--sidebar-ring);
     --color-sidebar-border: var(--sidebar-border);
@@ -46,9 +54,66 @@
     --radius-2xl: calc(var(--radius) * 1.8);
     --radius-3xl: calc(var(--radius) * 2.2);
     --radius-4xl: calc(var(--radius) * 2.6);
+    --animate-marquee: marquee 8s infinite linear;
+    --animate-marquee-vertical: marquee-vertical var(--duration) linear infinite;
+  @keyframes marquee {
+  from {
+    transform: translateX(0);
+        }
+  to {
+    transform: translateX(calc(-100% - var(--gap)));
+        }
+    }
+  @keyframes marquee-vertical {
+  from {
+    transform: translateY(0);
+        }
+  to {
+    transform: translateY(calc(-100% - var(--gap)));
+        }
+    }
+  --animate-gradient: gradient 8s linear infinite;
+  @keyframes gradient {
+  to {
+    background-position: var(--bg-size, 300%) 0;}}
+  --animate-flip: flip 10s linear infinite;
+  @keyframes flip {
+    0%,45% {
+      transform: rotateY(0deg);
+    }
+    50%,95% {
+      transform: rotateY(180deg);
+    }
+    100% {
+      transform: rotateY(360deg);
+    }
+  }
+  --animate-shiny-text: shiny-text 8s infinite;
+  @keyframes shiny-text {
+  0%, 90%, 100% {
+    background-position: calc(-100% - var(--shiny-width)) 0;
+    }
+  30%, 60% {
+    background-position: calc(100% + var(--shiny-width)) 0;
+    }
+  }
+  @keyframes shine-sweep {
+    0% {
+      left: -100%;
+    }
+
+    100% {
+      left: 150%;
+    }
+  }
+  --animate-shine-sweep: shine-sweep 3s infinite;
 }
 
 :root {
+    --perspective: 1000px;
+    --transform-style-preserve-3d: preserve-3d;
+    --background-backface-hidden: hidden;
+    --transform-rotate-y-180: rotateY(180deg);
     --background: oklch(1 0 0);
     --foreground: oklch(0.145 0 0);
     --card: oklch(1 0 0);
@@ -81,6 +146,7 @@
     --sidebar-accent-foreground: oklch(0.205 0 0);
     --sidebar-border: oklch(0.922 0 0);
     --sidebar-ring: oklch(0.708 0 0);
+    --shadow-uniform: 0 0 5px rgba(0, 0, 0, 0.40);
 }
 
 .dark {
@@ -117,6 +183,48 @@
     --sidebar-ring: oklch(0.556 0 0);
 }
 
+.perspective {
+  perspective: var(--perspective);
+}
+.preserve-3d {
+  transform-style: var(--transform-style-preserve-3d);
+}
+.backface-hidden {
+  backface-visibility: var(--background-backface-hidden);
+}
+.rotate-y-180 {
+  --tw-rotate-y: rotateY(180deg);
+  transform: var(--tw-rotate-y);
+}
+.shadow-uniform {
+  box-shadow: var(--shadow-uniform);
+}
+.gold-text {
+  position: relative;
+  background: linear-gradient(180deg, #b8832f, #e6b85c, #c9973f, #f5d48a, #f5d48a);
+  background-size: 200% 200%;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-weight: 900;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: gold-shine 2s ease-in-out infinite;
+  overflow: hidden;
+  cursor: pointer;
+  user-select: none;
+}
+
+.gold-text::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(120deg, transparent, rgba(255, 255, 255, 0.5), transparent);
+  animation: shine-sweep 3s infinite;
+}
+
 @layer base {
   * {
     @apply border-border outline-ring/50;
@@ -125,6 +233,6 @@
     @apply bg-background text-foreground;
     }
   html {
-    @apply font-sans;
+    @apply font-sans antialiased;
     }
 }
