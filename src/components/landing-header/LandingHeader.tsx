@@ -61,7 +61,7 @@ const LandingHeader = () => {
     window.open("https://t.me/TG_6FVIP/14035", "_blank");
   };
   const openChat = () => {
-    window.open("https://t.me/YY_6FVIP", "_blank");
+    window.open("https://t.me/runfengkefu", "_blank");
   };
   return (
     <nav className="shadow-sm flex justify-between h-[8%] bg-white px-3 md:px-5">
