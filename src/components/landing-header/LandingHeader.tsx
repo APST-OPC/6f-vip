@@ -39,7 +39,10 @@ const FlippingNavIcon = () => {
           }}
         >
           <h1 className="text-2xl md:text-3xl gold-text tracking-tighter flex items-center gap-2">
-            6F.VIP <span className="text-xl md:text-2xl">润豐國際</span>
+            6F.VIP
+            <span translate="no" className="text-xl md:text-2xl">
+              润豐國際
+            </span>
           </h1>
         </div>
       </motion.div>
@@ -54,11 +57,17 @@ const LandingHeader = () => {
       "bg-[#E2E8F0] hover:bg-[#E2E8F0]/70 rounded-full shadow-sm shadow-black/20",
       "active:translate-y-px",
     );
+  const openEvent = () => {
+    window.open("https://t.me/TG_6FVIP/14035", "_blank");
+  };
+  const openChat = () => {
+    window.open("https://t.me/YY_6FVIP", "_blank");
+  };
   return (
     <nav className="shadow-sm flex justify-between h-[8%] bg-white px-3 md:px-5">
       <FlippingNavIcon />
       <div className="h-full w-full flex gap-1 md:gap-3 items-center justify-end">
-        <div role="button" className={cn(btnClass())}>
+        <div role="button" className={cn(btnClass())} onClick={openEvent}>
           <img
             src={EventIcon}
             className="size-6 md:size-8"
@@ -66,7 +75,7 @@ const LandingHeader = () => {
           />
           <p className=" text-black">活动</p>
         </div>
-        <div role="button" className={cn(btnClass())}>
+        <div role="button" className={cn(btnClass())} onClick={openChat}>
           <img
             src={ChatIcon}
             className="size-6 md:size-8"

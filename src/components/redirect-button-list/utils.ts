@@ -8,6 +8,7 @@ export const redirectInfo: RedirectBtn[] = [
       title: "6F.VIP润豐频道",
       subTitle: "6F.VIP Runfeng Official Telegram Channel",
       image: Telegram,
+      link: "https://t.me/TG_6FVIP",
     },
   },
   {
@@ -15,6 +16,7 @@ export const redirectInfo: RedirectBtn[] = [
       title: "益德金融频道",
       subTitle: "Exclusive On-site VIP Lounge Service",
       image: VipLaurel,
+      link: "https://t.me/yidejinrong8888",
     },
   },
 ];
