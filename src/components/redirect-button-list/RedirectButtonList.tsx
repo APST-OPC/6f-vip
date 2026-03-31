@@ -17,7 +17,7 @@ const RetestButton = () => {
 const RedirectButton = ({ items }: RedirectBtn) => {
   const { title, subTitle, image } = items as RedirectContent;
   return (
-    <div className="flex justify-center border-b-4 border-[#D2D2E2] bg-white  shadow-uniform rounded-lg w-full py-1 cursor-pointer">
+    <div className="flex justify-center border-b-4 border-[#D2D2E2] bg-white transform-all duration-200 active:translate-y-px shadow-uniform rounded-lg w-full py-1 cursor-pointer">
       <div className="flex items-center w-[70%] md:w-1/2 gap-2">
         <img src={image} className="size-7 md:size-9" alt={`svg-${title}`} />
         <div>
