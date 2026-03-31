@@ -1,18 +1,5 @@
-import { Button } from "@/components";
 import type { RedirectBtn, RedirectContent } from "./type";
 import { redirectInfo } from "./utils";
-
-const RetestButton = () => {
-  return (
-    <Button
-      variant="custom"
-      size="custom"
-      className="relative w-full bg-full bg-center"
-    >
-      <p className="z-10 text-sm md:text-lg">重新检测</p>
-    </Button>
-  );
-};
 
 const RedirectButton = ({ items }: RedirectBtn) => {
   const { title, subTitle, image } = items as RedirectContent;
@@ -33,15 +20,10 @@ const RedirectButton = ({ items }: RedirectBtn) => {
 
 const RedirectButtonList = () => {
   return (
-    <div className="px-5 space-y-3">
-      <RetestButton />
-      {redirectInfo.map(({ items }, index) =>
-        items === "retest" ? (
-          <RetestButton key={index} />
-        ) : (
-          <RedirectButton key={index} items={items} />
-        ),
-      )}
+    <div className="space-y-3">
+      {redirectInfo.map(({ items }, index) => (
+        <RedirectButton key={index} items={items} />
+      ))}
     </div>
   );
 };

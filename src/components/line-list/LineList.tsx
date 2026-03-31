@@ -1,16 +1,16 @@
 import type { ReactNode } from "react";
 import type { USDTLine } from "./type";
 
-import { useEffect, useState } from "react";
 import { ChevronRight } from "lucide-react";
 
 import Bell from "@/assets/svg/ic_svg_bell.svg";
 import Token from "@/assets/usdt_token.webp";
 
+import { useGenereatePing } from "@/zustand/store";
 import { Button } from "@/components/ui/button";
 import { Marquee } from "@/components/ui/marquee";
 
-import { usdtLine } from "./utils";
+import { getUsdtLine } from "./utils";
 import { cn } from "@/lib/utils";
 
 interface ISeparatorText {
@@ -39,20 +39,8 @@ const Typography = (props: ISeparatorText) => {
 };
 
 const DedicatedLine = ({ contents }: USDTLine) => {
-  const { title } = contents;
-  const [ping, setPing] = useState<string>("0ms");
+  const { title, ping } = contents;
 
-  useEffect(() => {
-    const generatePing = () => `${Math.floor(Math.random() * 100)}ms`;
-
-    queueMicrotask(() => setPing(generatePing()));
-
-    const interval = setInterval(() => {
-      setPing(generatePing());
-    }, 3000);
-
-    return () => clearInterval(interval);
-  }, []);
   return (
     <section className="p-1 px-3 md:px-5 w-full rounded-xl bg-white shadow-uniform space-y-1 md:space-y-3">
       <div className="flex items-center justify-between text-black text-base md:text-xl">
@@ -77,9 +65,24 @@ const DedicatedLine = ({ contents }: USDTLine) => {
   );
 };
 
-const LineList = () => {
+const RetestButton = () => {
+  const { generatePing } = useGenereatePing();
   return (
-    <div className="px-5 rounded-lg">
+    <Button
+      variant="custom"
+      size="custom"
+      className="relative w-full bg-full bg-center"
+      onClick={generatePing}
+    >
+      <p className="z-10 text-sm md:text-lg">重新检测</p>
+    </Button>
+  );
+};
+
+const LineList = () => {
+  const { ping } = useGenereatePing();
+  return (
+    <div className="rounded-lg">
       <div className="flex w-full gap-2 items-center">
         <img src={Bell} className="size-5" alt="bell-svg" />
         <Marquee className="text-base whitespace-nowrap text-slate-600">
@@ -87,8 +90,9 @@ const LineList = () => {
         </Marquee>
       </div>
       <div className="space-y-3">
-        <DedicatedLine contents={usdtLine[0].contents} />
-        <DedicatedLine contents={usdtLine[1].contents} />
+        <DedicatedLine contents={getUsdtLine(ping)[0].contents} />
+        <DedicatedLine contents={getUsdtLine(ping)[1].contents} />
+        <RetestButton />
       </div>
     </div>
   );

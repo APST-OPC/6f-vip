@@ -27,18 +27,18 @@ const FlippingNavIcon = () => {
           className="absolute w-full h-full flex items-center"
           style={{ backfaceVisibility: "hidden" }}
         >
-          <h1 className="text-2xl md:text-3xl gold-text tracking-tighter px-2 ">
+          <h1 className="text-2xl md:text-3xl gold-text tracking-tighter pr-0.5">
             6F.VIP
           </h1>
         </div>
         <div
-          className="absolute w-full h-full flex items-center"
+          className="absolute w-full h-full flex items-center pr-0.5"
           style={{
             transform: "rotateY(180deg)",
             backfaceVisibility: "hidden",
           }}
         >
-          <h1 className="text-2xl md:text-3xl gold-text tracking-tighter px-2 flex items-center gap-2">
+          <h1 className="text-2xl md:text-3xl gold-text tracking-tighter flex items-center gap-2">
             6F.VIP <span className="text-xl md:text-2xl">润豐國際</span>
           </h1>
         </div>
@@ -55,9 +55,9 @@ const LandingHeader = () => {
       "active:translate-y-px",
     );
   return (
-    <nav className="shadow-sm flex justify-between h-[8%] bg-white">
+    <nav className="shadow-sm flex justify-between h-[8%] bg-white px-3 md:px-5">
       <FlippingNavIcon />
-      <div className="h-full w-full flex gap-3 items-center justify-end pr-2">
+      <div className="h-full w-full flex gap-1 md:gap-3 items-center justify-end">
         <div role="button" className={cn(btnClass())}>
           <img
             src={EventIcon}

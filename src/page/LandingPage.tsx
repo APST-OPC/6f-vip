@@ -25,11 +25,14 @@ const App = () => {
       <BackgroundImage />
       <div className="h-full relative">
         <LandingHeader />
-        <main className="space-y-3 pb-30 h-[92%] overflow-y-auto">
+
+        <main className="space-y-3 h-[92%] overflow-y-auto">
           <BannerCarousel />
-          <LineList />
-          <RedirectButtonList />
-          <LandingFooter />
+          <div className="px-3 md:px-5 space-y-3">
+            <LineList />
+            <RedirectButtonList />
+            <LandingFooter />
+          </div>
         </main>
       </div>
     </div>
