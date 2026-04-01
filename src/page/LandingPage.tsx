@@ -25,7 +25,6 @@ const App = () => {
       <BackgroundImage />
       <div className="h-full relative">
         <LandingHeader />
-
         <main className="space-y-3 h-[92%] overflow-y-auto">
           <BannerCarousel />
           <div className="px-3 md:px-5 space-y-3">

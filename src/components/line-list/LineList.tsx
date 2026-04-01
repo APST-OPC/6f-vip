@@ -1,24 +1,11 @@
-import type { ReactNode } from "react";
-import type { USDTLine } from "./type";
-
+import type { ISeparatorText, USDTLine } from "./type";
 import { ChevronRight } from "lucide-react";
-
 import Bell from "@/assets/svg/ic_svg_bell.svg";
 import Token from "@/assets/usdt_token.webp";
-
 import { useGenereatePing } from "@/zustand/store";
-import { Button } from "@/components/ui/button";
-import { Marquee } from "@/components/ui/marquee";
-
+import { Button, Marquee } from "@/components/ui";
 import { getUsdtLine } from "./utils";
 import { cn } from "@/lib/utils";
-
-interface ISeparatorText {
-  icon?: boolean;
-  children: string | ReactNode;
-  className?: HTMLDivElement["className"];
-  contentClass?: HTMLParagraphElement["className"];
-}
 
 const Typography = (props: ISeparatorText) => {
   const { children, className, icon = false, contentClass } = props;
