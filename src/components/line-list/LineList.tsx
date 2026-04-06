@@ -3,9 +3,9 @@ import { ChevronRight } from "lucide-react";
 import Bell from "@/assets/svg/ic_svg_bell.svg";
 import Token from "@/assets/usdt_token.webp";
 import { useGenereatePing } from "@/zustand/store";
-import { Button, Marquee } from "@/components/ui";
-import { getUsdtLine } from "./utils";
+import { Button, Image, Marquee } from "@/components/ui";
 import { cn } from "@/lib/utils";
+import { getUsdtLine } from "./utils";
 
 const Typography = (props: ISeparatorText) => {
   const { children, className, icon = false, contentClass } = props;
@@ -13,12 +13,7 @@ const Typography = (props: ISeparatorText) => {
   return (
     <div className={cn("flex items-center gap-1", className)}>
       {icon && (
-        <img
-          src={Token}
-          className="size-6 md:size-8 object-contain"
-          alt="token"
-          loading="lazy"
-        />
+        <Image src={Token} className="object-contain" size="md" alt="token" />
       )}
       {asChild ? children : <p className={contentClass}>{children}</p>}
     </div>

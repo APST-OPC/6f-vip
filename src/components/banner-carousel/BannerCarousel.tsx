@@ -4,6 +4,7 @@ import {
   CarouselContent,
   CarouselItem,
 } from "@/components/ui/carousel";
+import { Image } from "@/components";
 import { carouselHeaderList } from "./utils";
 
 const BannerCarousel = () => {
@@ -16,10 +17,8 @@ const BannerCarousel = () => {
       <CarouselContent>
         {carouselHeaderList.map(({ image }, index) => (
           <CarouselItem key={index}>
-            <img
-              className="w-full h-full object-cover"
+            <Image
               src={image}
-              alt={`banner-${index.toString()}`}
               loading={index === 0 ? "eager" : "lazy"}
               fetchPriority="high"
             />

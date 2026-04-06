@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { motion } from "motion/react";
 import { btnClass, buttonValues } from "./utils";
+import { Image } from "@/components/ui";
 
 const FlippingNavIcon = () => {
   const [flipped, setFlipped] = useState(false);
@@ -51,7 +52,7 @@ const NavButtons = () => {
     <div className="h-full w-full flex gap-1 md:gap-3 items-center justify-end">
       {buttonValues.map(({ label, icon, action }, index) => (
         <div key={index} role="button" className={btnClass} onClick={action}>
-          <img src={icon} className="size-6 md:size-8" alt="header-btn-event" />
+          <Image src={icon} size="md" alt="header-btn-event" />
           <p className=" text-black">{label}</p>
         </div>
       ))}
