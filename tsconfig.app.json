@@ -8,8 +8,7 @@
     "types": ["vite/client"],
     "skipLibCheck": true,
     // path
-    "baseUrl": ".",
-    "paths": { "@/*": ["src/*"] },
+    "paths": { "@/*": ["./src/*"] },
 
     /* Bundler mode */
     "moduleResolution": "bundler",

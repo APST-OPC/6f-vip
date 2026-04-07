@@ -5,12 +5,15 @@ const imageVariants = cva("object-cover object-center", {
   variants: {
     variant: {
       default: "object-cover object-center",
+      contain: "object-contain object-center",
+      fill: "object-fill object-center",
     },
     size: {
-      default: "w-full h-full",
+      default: "w-auto h-auto",
       sm: "size-5",
       md: "size-6 md:size-8",
       lg: "size-9 md:size-9",
+      full: "w-full h-full",
     },
   },
   defaultVariants: {
