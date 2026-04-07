@@ -19,6 +19,7 @@ const BannerCarousel = () => {
           <CarouselItem key={index}>
             <Image
               src={image}
+              size="full"
               loading={index === 0 ? "eager" : "lazy"}
               fetchPriority="high"
             />
